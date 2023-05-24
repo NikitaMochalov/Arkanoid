@@ -19,12 +19,30 @@ public class BallMovement : MonoBehaviour
 			return;
 
 		Vector2 moveDelta = direction * speed * Time.deltaTime;
-		transform.position = new Vector3(transform.position.x + moveDelta.x, transform.position.y + moveDelta.y, transform.position.z);
+		float newPosX = transform.position.x + moveDelta.x;
+		float newPosY = transform.position.y + moveDelta.y;
+		transform.position = new Vector3(newPosX, newPosY, transform.position.z);
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		Vector3 normal = collision.contacts[0].normal;
+		if (collision.gameObject.TryGetComponent(out Player player))
+			ReflectFromPlayer(player);
+		else
+			ReflectDirection(collision.contacts[0].normal);
+
+	}
+
+	private void ReflectFromPlayer(Player player)
+	{
+		float dX = player.transform.position.x - transform.position.x;
+		float reflectionArea = player.Width() * 1.5f;
+		float angle = dX / reflectionArea * Mathf.PI;
+		direction = new Vector3(Mathf.Sin(-angle), Mathf.Cos(angle));
+	}
+
+	private void ReflectDirection(Vector3 normal)
+	{
 		direction = Vector3.Reflect(direction, normal);
 	}
 }
