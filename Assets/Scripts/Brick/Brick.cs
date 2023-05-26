@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Health))]
 public class Brick : MonoBehaviour
 {
 	[SerializeField] private Health health;
+	public UnityEvent OnDestruct;
 
 	private void Awake()
 	{
@@ -21,6 +23,7 @@ public class Brick : MonoBehaviour
 
 	void Destruct()
 	{
+		OnDestruct?.Invoke();
 		Destroy(gameObject);
 	}
 }
