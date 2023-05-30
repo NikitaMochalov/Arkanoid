@@ -26,17 +26,17 @@ public class BallMovement : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.TryGetComponent(out Player player))
-			ReflectDirectionFromPlayer(player);
+		if (collision.gameObject.TryGetComponent(out Platform platform))
+			ReflectDirectionFromPlatform(platform);
 		else
 			ReflectDirection(collision.contacts[0].normal);
 
 	}
 
-	private void ReflectDirectionFromPlayer(Player player)
+	private void ReflectDirectionFromPlatform(Platform platform)
 	{
-		float dX = player.transform.position.x - transform.position.x;
-		float reflectionArea = player.width * 1.5f;
+		float dX = platform.transform.position.x - transform.position.x;
+		float reflectionArea = platform.width * 1.5f;
 		float angle = dX / reflectionArea * Mathf.PI;
 		direction = new Vector3(Mathf.Sin(-angle), Mathf.Cos(angle));
 	}

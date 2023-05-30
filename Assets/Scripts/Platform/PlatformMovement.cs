@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
-public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(Platform))]
+public class PlatformMovement : MonoBehaviour
 {
 	[SerializeField] private GameInput gameInput;
 	[SerializeField] private float moveSpeed = 8f;
@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float leftBorderPos = -5.8f;
 	[SerializeField] private float rightBorderPos = 5.8f;
 
-	private Player player;
+	private Platform platform;
 
 	private void Awake()
 	{
-		if (player == null)
-			player = GetComponent<Player>();
+		if (platform == null)
+			platform = GetComponent<Platform>();
 		if (gameInput == null)
 			gameInput = FindObjectOfType<GameInput>();
 	}
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 		float moveDistance = moveSpeed * Time.deltaTime;
 
 		float newXPos = transform.position.x + moveDistance * moveDirection;
-		newXPos = Mathf.Clamp(newXPos, leftBorderPos + player.width / 2, rightBorderPos - player.width / 2);
+		newXPos = Mathf.Clamp(newXPos, leftBorderPos + platform.width / 2, rightBorderPos - platform.width / 2);
 
 		transform.position = new Vector3 (newXPos, transform.position.y, transform.position.z);
 	}

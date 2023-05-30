@@ -66,7 +66,7 @@ Transform:
   - {fileID: 8344522041176767737}
   - {fileID: 4672744830631748786}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &10565107202666962
 PrefabInstance:
@@ -252,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 1889438598800656630, guid: 2662d6995582543439c5aa20c82920ee,
         type: 3}
       propertyPath: m_Name
-      value: BottomBorderTrigger
+      value: FallArea
       objectReference: {fileID: 0}
     - target: {fileID: 4846375665722791800, guid: 2662d6995582543439c5aa20c82920ee,
         type: 3}

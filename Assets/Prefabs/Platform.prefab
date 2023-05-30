@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6027180575421208830}
   - component: {fileID: 4960342168965008868}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a2a445244ccc74ba397cec6116f483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   gameInput: {fileID: 0}
   moveSpeed: 8
   leftBorderPos: -5.8

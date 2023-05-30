@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Platform : MonoBehaviour
 {
     [SerializeField] private float _width = 2f;
 
