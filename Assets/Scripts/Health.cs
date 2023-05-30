@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
 	{
 		health = Mathf.Clamp(health - damage, 0, maxHealth);
 
-		if (health <= 0)
+		if (health == 0)
 			OnHealthDepleated?.Invoke();
 		else
 			OnHealthChanged?.Invoke(health);

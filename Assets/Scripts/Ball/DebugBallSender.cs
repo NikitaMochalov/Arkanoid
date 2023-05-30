@@ -8,6 +8,7 @@ public class DebugBallSender : MonoBehaviour
 	{
 		//direction = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
 		direction = new Vector2(0, -1);
-		FindObjectOfType<BallMovement>().StartMovement(direction);
+		foreach (var ballMovement in FindObjectsOfType<BallMovement>())
+			ballMovement.StartMovement(direction);
 	}
 }
